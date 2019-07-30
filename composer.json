@@ -1,5 +1,5 @@
 {
-  "name": "udayshi/php-alexa",
+  "name": "udayshi/micro-php-alexa",
   "type": "library",
   "description": "This is PHP Helper library  for Alexa and  Echo Show to generate response with few lines of code.",
   "authors": [
