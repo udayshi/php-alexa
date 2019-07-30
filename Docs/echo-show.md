@@ -60,4 +60,6 @@ As long as you have minimum parameter for the echo show it will send proper resp
         This method is used to set image only.
         
      - setListImages($objImg=[])  
-        This method is used to set multiple items of image.                           
+        This method is used to set multiple items of image.      
+        
+[Back](https://github.com/udayshi/php-alexa/)                             

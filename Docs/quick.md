@@ -55,3 +55,5 @@ If you want to  modify name of run method to be called then you can do the follo
         $obj->registerIntentHandlerObject('LaunchRequest',$obj,'process')
             ->run();
 ```    
+
+[Back](https://github.com/udayshi/php-alexa/)

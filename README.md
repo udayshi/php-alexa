@@ -29,7 +29,7 @@ Finally you can run it.
         ->run();
     
 ```
-[more...](https://github.com/udayshi/usalexa/blob/master/Docs/quick.md)
+[more...](https://github.com/udayshi/php-alexa/blob/master/Docs/quick.md)
 
 
 
@@ -95,4 +95,4 @@ As long as you have minimum parameter for the echo show it will send proper resp
         ->run();
     
 ```
-[more...](https://github.com/udayshi/usalexa/blob/master/Docs/echo-show.md)
+[more...](https://github.com/udayshi/php-alexa/blob/master/Docs/echo-show.md)
