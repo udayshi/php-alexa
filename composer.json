@@ -1,0 +1,42 @@
+{
+  "name": "udayshi/usalexa",
+  "type": "library",
+  "description": "This is PHP Helper library  for Alexa and  Echo Show to generate response with few lines of code.",
+  "authors": [
+    {
+      "name": "Uday Shiwakoti",
+      "email": "shiuday@gmail.com"
+    }
+  ],
+  "keywords": [
+    "alexa",
+    "alexa-php",
+    "echo",
+    "echo-php",
+    "show",
+    "echo-show",
+    "echo-show-php",
+    "alexa-skill",
+    "alexa-sdk",
+    "alexa-ssml",
+    "alexa-template",
+    "alexa-library",
+    "alexa-skill",
+    "alexa-without-lamda",
+    "alexa-skill-php",
+    "us-alexa",
+    "php",
+    "php7",
+    "ssml",
+    "template"
+  ],
+  "require": {
+    "php": ">=7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "USAlexa\\": "USAlexa/"
+    }
+  },
+  "license": "MIT"
+}
