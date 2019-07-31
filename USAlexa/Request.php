@@ -172,17 +172,19 @@ class Request{
     function getSessions($key=NULL){
         if(!isset($key)){
             $output=[];
-            if(self::$session->attributes) {
-                foreach (self::$session->attributes as $k => $v) {
-                    $output[$k] = $v;
+            if(count(self::$session)>0) {
+                if (self::$session->attributes) {
+                    foreach (self::$session->attributes as $k => $v) {
+                        $output[$k] = $v;
+                    }
                 }
             }
 
             return $output;
-        }else if(self::$session->attributes->$key)
+        }else if(count(self::$session)>0 && self::$session->attributes->$key)
             return self::$session->attributes->$key;
         else
-            return false;
+            return [];
 
     }
 
