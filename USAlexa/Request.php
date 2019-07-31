@@ -30,6 +30,9 @@ class Request{
             #self::$data=json_decode(file_get_contents("./data/response.json"));
 
             self::$data=json_decode(file_get_contents("php://input"));
+            if(!is_object(self::$data))
+                die("It's not valid alexa request");
+
             self::$request=self::$data->request;
             self::$intent=self::$request->intent;
             self::$slots=self::$intent->slots;
