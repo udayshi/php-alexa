@@ -98,6 +98,13 @@ class Alexa{
                     $obj->$method();
 
                 }
+            }else{
+                $msg='I am having trouble to process '.$intent.' intent. We will fix the problem ASAP.';
+                $quit_intent=['AMAZON.CancelIntent','AMAZON.StopIntent'];
+                if(in_array($intent,$quit_intent)){
+                    $msg='Thank you for using our skill. ';
+                }
+                $this->response->setResponse($msg);
             }
            header('Content-Type: application/json');
            echo json_encode($this->getResponse());
