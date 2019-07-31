@@ -33,12 +33,24 @@ class Request{
             if(!is_object(self::$data))
                 die("It's not valid alexa request");
 
-            self::$request=self::$data->request;
-            self::$intent=self::$request->intent;
-            self::$slots=self::$intent->slots;
 
-            self::$session=self::$data->session;
-            self::$system=self::$data->context->System;
+
+            self::$request=self::$data->request;
+
+
+            if(property_exists(self::$request, 'intent')) {
+                self::$intent = self::$request->intent;
+
+                if(property_exists(self::$intent, 'slots'))
+                    self::$slots=self::$intent->slots;
+            }
+
+
+            if(property_exists(self::$data, 'session'))
+                self::$session=self::$data->session;
+
+            if(property_exists(self::$data, 'context'))
+                self::$system=self::$data->context->System;
 
         }
 
@@ -49,7 +61,8 @@ class Request{
      * @return string
      */
     function getIdSession(){
-        return self::$session->sessionId;
+        if(property_exists(self::$session, 'sessionId'))
+            return self::$session->sessionId;
     }
 
     /**
@@ -107,9 +120,9 @@ class Request{
      * @return string
      */
     function getIntent(){
-
-        $intent=self::$request->intent->name;
-        if(empty($intent))
+        if(property_exists(self::$request, 'intent'))
+            $intent=self::$request->intent->name;
+        else
             $intent='LaunchRequest';
         return $intent;
     }

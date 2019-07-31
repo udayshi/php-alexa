@@ -38,7 +38,7 @@ class Response{
     }
 
     public function endSession($val=true){
-        $response['response']['shouldEndSession']=$val;
+        $this->response['response']['shouldEndSession']=$val;
     }
 
 
