@@ -72,7 +72,7 @@ class Response{
 
 
         $card=['type'=>'Simple','title'=>$title,'content'=>$description];
-
+/*
         if(isset($src)){
             $card['image']=[];
             $card['image']['smallImageUrl']=Utils::filterUrl($src);
@@ -83,7 +83,7 @@ class Response{
         if(isset($large_image)){
             $card['image']['largeImageUrl']=Utils::filterUrl($large_image);
         }
-
+*/
 
         $this->response['response']['card']=$card;
 
