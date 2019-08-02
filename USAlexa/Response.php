@@ -37,6 +37,22 @@ class Response{
         $this->response=$response;
     }
 
+    function setCard($title=NULL,$description=NULL,$img=NULL,$thumbnail=NULL){
+        $this->response['response']['card']=['type'=>'Standard'];
+        $this->response['response']['card']['title']=$title;
+        $this->response['response']['card']['text']=$description;
+
+        if(isset($img)){
+            $this->response['response']['card']['image']=['largeImageUrl'=>$img,'smallImageUrl'=>$img];
+            if(isset($thumbnail))
+                $this->response['response']['card']['image']['smallImageUrl']=$thumbnail;
+        }
+
+        return $this;
+
+
+
+    }
     public function endSession($val=true){
         $this->response['response']['shouldEndSession']=$val;
         return $this;
@@ -68,27 +84,7 @@ class Response{
         $this->response_data[]=['data'=>$data,'tag'=>$tag,'params'=>$params];
         return $this;
     }
-    function setCard($title=NULL,$description=NULL,$src=NULL,$large_image=null){
 
-
-        $card=['type'=>'Simple','title'=>$title,'content'=>$description];
-/*
-        if(isset($src)){
-            $card['image']=[];
-            $card['image']['smallImageUrl']=Utils::filterUrl($src);
-            $card['image']['largeImageUrl']=Utils::filterUrl($src);
-
-        }
-
-        if(isset($large_image)){
-            $card['image']['largeImageUrl']=Utils::filterUrl($large_image);
-        }
-*/
-
-        $this->response['response']['card']=$card;
-
-        return $this;
-    }
 
     function setWhisper($data){
         $this->setResponse($data,'amazon:effect',['name'=>'whispered']);
