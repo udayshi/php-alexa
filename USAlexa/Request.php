@@ -173,7 +173,7 @@ class Request{
         if(!isset($key)){
             $output=[];
             if(count(self::$session)>0) {
-                if (self::$session->attributes) {
+                if (isset(self::$session->attributes)) {
                     foreach (self::$session->attributes as $k => $v) {
                         $output[$k] = $v;
                     }
