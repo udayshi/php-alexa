@@ -108,8 +108,9 @@ class Alexa{
             }
            header('Content-Type: application/json');
 
-
-           return json_encode($this->getResponse());
+            $res=json_encode($this->getResponse());
+            file_put_contents('res.json',$res);
+           return $res;
 
 
         }
