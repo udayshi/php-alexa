@@ -110,7 +110,7 @@ class Alexa{
 
             $res=json_encode($this->getResponse());
             file_put_contents('res.json',$res);
-           return $res;
+           echo  $res;
 
 
         }
