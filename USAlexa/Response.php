@@ -74,13 +74,14 @@ class Response{
         $card=['type'=>'Simple','title'=>$title,'content'=>$description];
 
         if(isset($src)){
-            $card['smallImageUrl']=Utils::filterUrl($src);
-            $card['largeImageUrl']=Utils::filterUrl($src);
+            $card['image']=[];
+            $card['image']['smallImageUrl']=Utils::filterUrl($src);
+            $card['image']['largeImageUrl']=Utils::filterUrl($src);
 
         }
 
         if(isset($large_image)){
-            $card['largeImageUrl']=Utils::filterUrl($large_image);
+            $card['image']['largeImageUrl']=Utils::filterUrl($large_image);
         }
 
 
