@@ -39,6 +39,7 @@ class Response{
 
     public function endSession($val=true){
         $this->response['response']['shouldEndSession']=$val;
+        return $this;
     }
 
 
@@ -67,7 +68,26 @@ class Response{
         $this->response_data[]=['data'=>$data,'tag'=>$tag,'params'=>$params];
         return $this;
     }
+    function setCard($title=NULL,$description=NULL,$src=NULL,$large_image=null){
 
+
+        $card=['type'=>'Simple','title'=>$title,'content'=>$description];
+
+        if(isset($src)){
+            $card['smallImageUrl']=Utils::filterUrl($src);
+            $card['largeImageUrl']=Utils::filterUrl($src);
+
+        }
+
+        if(isset($large_image)){
+            $card['largeImageUrl']=Utils::filterUrl($large_image);
+        }
+
+
+        $this->response['response']['card']=$card;
+
+        return $this;
+    }
 
     function setWhisper($data){
         $this->setResponse($data,'amazon:effect',['name'=>'whispered']);

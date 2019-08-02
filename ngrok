@@ -1,0 +1,1 @@
+docker run --rm -it --link alexa_container_1 wernight/ngrok ngrok http alexa_container_1:80

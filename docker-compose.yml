@@ -1,0 +1,8 @@
+container:
+  #build: .
+  image: udaysh/php_v7.2
+  labels:
+    - "com.lowecloud.proxy=php.docker"
+  volumes:
+    - "./manifest/config/nginx.conf:/etc/nginx/nginx.conf:ro"
+    - "./:/app"

@@ -87,7 +87,7 @@ class Alexa{
        function run(){
             $intent=$this->request->getIntent();
 
-            if(isset(self::$intents[$intent])) {
+            if(isset(self::$intents[$intent]) && false) {
                 $intent_info = self::$intents[$intent];
 
                 if ($intent_info['type'] == 'function') {
@@ -107,7 +107,11 @@ class Alexa{
                 $this->response->setResponse($msg);
             }
            header('Content-Type: application/json');
-           echo json_encode($this->getResponse());
+
+
+           $res=json_encode($this->getResponse());
+           file_put_contents('log.json');
+           echo $res;
 
         }
 
