@@ -109,9 +109,8 @@ class Alexa{
            header('Content-Type: application/json');
 
 
-           $res=json_encode($this->getResponse());
-           file_put_contents('log.json');
-           echo $res;
+           return json_encode($this->getResponse());
+
 
         }
 
