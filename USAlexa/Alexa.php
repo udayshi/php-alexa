@@ -87,7 +87,7 @@ class Alexa{
        function run(){
             $intent=$this->request->getIntent();
 
-            if(isset(self::$intents[$intent]) && false) {
+            if(isset(self::$intents[$intent])) {
                 $intent_info = self::$intents[$intent];
 
                 if ($intent_info['type'] == 'function') {
