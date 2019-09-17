@@ -46,7 +46,7 @@ class Request{
             }
 
 
-            if(property_exists(self::$data, 'session'))
+            if(is_array(self::$session) && count(self::$session))
                 self::$session=self::$data->session;
 
             if(property_exists(self::$data, 'context'))
@@ -172,6 +172,9 @@ class Request{
     function getSessions($key=NULL){
         if(!isset($key)){
             $output=[];
+            if(!is_array(self::$session))
+                self::$session=[];
+
             if(count(self::$session)>0) {
                 if (isset(self::$session->attributes)) {
                     foreach (self::$session->attributes as $k => $v) {
@@ -192,4 +195,8 @@ class Request{
         return $this->getIdApplication()==$app_id;
     }
 
+
+    function writeRequest($request_file=NULL){
+        file_put_contents($request_file,file_get_contents("php://input"));
+    }
 }
